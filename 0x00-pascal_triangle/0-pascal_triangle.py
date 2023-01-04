@@ -3,7 +3,7 @@
 """
 
 
-def pascal_tri(n):
+def pascal_triangle(n):
     """Function return n rows of pasical tri
     """
     if n <= 0:
