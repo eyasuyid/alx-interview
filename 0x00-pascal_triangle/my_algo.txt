@@ -1,0 +1,30 @@
+FUCNTION (n)
+
+COMPARE n <= 0; return empty list
+
+DECLARE store = []
+
+
+FOR i (1 upto n+1) times
+	
+	DECLARE row = []
+
+	if (i equal 1) then
+		row append i
+		store append row
+		continue
+	
+	DECLARE preList equal (store at index i - 2)
+
+	DECLARE preLen = preList.Length
+
+	FOR j preLen times
+
+		if (j equal zero) then
+			row append 1
+			continue
+
+		row append preList[j-1] + preList[j]
+
+	row append 1
+	store append row
