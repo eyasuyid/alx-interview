@@ -1,0 +1,14 @@
+***********************
+
+the pseudo code 
+
+FUCNTION(boxes)
+	INITIALIZE opened_boxes to [0]
+
+	FOR ALL i IN opened_box 
+
+		FOR all j in boxes at index i
+			if j is greater than 0 and less than 
+			box_length and not in opened box
+				ADD j to opened_box
+	RETURN true if length of opened_box and boxes are equal
