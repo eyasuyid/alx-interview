@@ -1,0 +1,19 @@
+FUNCTION (N) # n is required number of H's
+
+# number of H's
+nh = 1
+# previous copied length
+copied = 0
+# number of operation
+nop = 0
+
+While nh < n
+# remainder as rem
+rem = n - nh
+if rem % nh equals 0
+	copied = nh
+	nh += copied
+	nop += 2
+else
+	nh += copied
+	nop += 1
