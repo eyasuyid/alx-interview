@@ -21,7 +21,7 @@ def display():
     """Fucntion display the result"""
 
     print("File size: {:d}".format(totalFileSize))
-    for k, v in codes.items():
+    for k, v in sorted(codes.items()):
         if v != 0:
             print("{:s}: {:d}".format(k, v))
 
