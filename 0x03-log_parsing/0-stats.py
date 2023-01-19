@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module for manuplating stdout log"""
+
 import sys
 
 codes = {
@@ -16,6 +18,8 @@ count = 0
 
 
 def display():
+    """Fucntion display the result"""
+
     print("File size: {:d}".format(totalFileSize))
     for k, v in codes.items():
         if v != 0:
