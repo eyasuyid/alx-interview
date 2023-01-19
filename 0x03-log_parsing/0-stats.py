@@ -15,10 +15,10 @@ count = 0
 
 
 def display():
-    print(f"File size: {totalFileSize}")
+    print("File size: {:d}".format(totalFileSize))
     for k, v in codes.items():
         if v != 0:
-            print("{}: {}".format(k, v))
+            print("{:s}: {:d}".format(k, v))
 
 
 try:
