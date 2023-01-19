@@ -31,19 +31,15 @@ try:
         list_text = line_text.split(" ")
         if len(list_text) != 9:
             continue
-
         code = list_text[-2]
         fileSize = int(list_text[-1])
         totalFileSize += fileSize
-        
         if code in codes.keys():
             codes[code] += 1
             count += 1
-
         if count == 10:
             count = 0
             display()
-
 except Exception as e:
     pass
 finally:
