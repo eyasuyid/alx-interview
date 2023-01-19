@@ -1,46 +1,37 @@
 #!/usr/bin/python3
-"""Module for manuplating stdout log"""
+'''a script that reads stdin line by line and computes metrics'''
+
 
 import sys
 
-codes = {
-        "200": 0,
-        "301": 0,
-        "400": 0,
-        "401": 0,
-        "403": 0,
-        "404": 0,
-        "405": 0,
-        "500": 0
-        }
-totalFileSize = 0
-count = 0
-
-
-def display():
-    """Fucntion display the result"""
-
-    print("File size: {:d}".format(totalFileSize))
-    for k, v in sorted(codes.items()):
-        if v != 0:
-            print("{:s}: {:d}".format(k, v))
-
+cache = {'200': 0, '301': 0, '400': 0, '401': 0,
+         '403': 0, '404': 0, '405': 0, '500': 0}
+total_size = 0
+counter = 0
 
 try:
-    for line_text in sys.stdin:
-        list_text = line_text.split(" ")
-        if len(list_text) != 9:
-            continue
-        code = list_text[-2]
-        fileSize = int(list_text[-1])
-        totalFileSize += fileSize
-        if code in codes.keys():
-            codes[code] += 1
-            count += 1
-        if count == 10:
-            count = 0
-            display()
-except Exception as e:
+    for line in sys.stdin:
+        line_list = line.split(" ")
+        if len(line_list) > 4:
+            code = line_list[-2]
+            size = int(line_list[-1])
+            if code in cache.keys():
+                cache[code] += 1
+            total_size += size
+            counter += 1
+
+        if counter == 10:
+            counter = 0
+            print('File size: {}'.format(total_size))
+            for key, value in sorted(cache.items()):
+                if value != 0:
+                    print('{}: {}'.format(key, value))
+
+except Exception as err:
     pass
+
 finally:
-    display()
+    print('File size: {}'.format(total_size))
+    for key, value in sorted(cache.items()):
+        if value != 0:
+            print('{}: {}'.format(key, value))
