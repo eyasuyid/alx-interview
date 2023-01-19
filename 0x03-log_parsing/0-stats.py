@@ -26,6 +26,9 @@ try:
     for line_text in sys.stdin:
         count += 1
         list_text = line_text.split(" ")
+        if len(list_text) != 9:
+            continue
+
         code = list_text[-2]
         fileSize = int(list_text[-1])
         totalFileSize += fileSize
